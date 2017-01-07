@@ -1,0 +1,49 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://ww.hibernate.org/dtd/hibernate-configuration-3.0 dtd">
+<hibernate-configuration>
+
+	<session-factory>
+		<property name="connection.driver_class">oracle.jdbc.OracleDriver</property>
+		<property name="connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+		<property name="connection.username">system</property>
+		<property name="connection.password">system</property>
+		<property name="connection.pool_size">10</property>
+<!-- For connecting any hibernate application with the database, you must specify the SQL dialects. As hibernate is db independent should be 
+used as er the db used -->
+		<property name="dialect">org.hibernate.dialect.OracleDialect</property>
+		<property name="hbm2ddl.auto">create</property>
+		<property name="show_sql">true</</property>
+		<property name="format_sql">true</</property>
+		<!-- For resources, we need to use slashes -->
+	
+		<mapping resource="com/ds/resources/mappings/paymentmodel/coupon.hbm.xml"/>
+		<mapping resource="com/ds/resources/mappings/paymentmodel/demanddraft.hbm.xml"/>
+		<mapping resource="com/ds/resources/mappings/paymentmodel/drivercharges.hbm.xml"/>
+		<mapping resource="com/ds/resources/mappings/paymentmodel/insurance.hbm.xml"/>
+		<mapping resource="com/ds/resources/mappings/paymentmodel/insurancetype.hbm.xml"/>
+		<mapping resource="com/ds/resources/mappings/paymentmodel/payment.hbm.xml"/>
+		<mapping resource="com/ds/resources/mappings/paymentmodel/paymenttype.hbm.xml"/>
+		<mapping resource="com/ds/resources/mappings/paymentmodel/vehiclecharges.hbm.xml"/>
+	
+		<mapping resource="com/ds/resources/mappings/placesmodel/branch.hbm.xml"/>
+		<mapping resource="com/ds/resources/mappings/placesmodel/location.hbm.xml"/>
+		
+		<mapping resource="com/ds/resources/mappings/transactionmodel/bookingrecord.hbm.xml"/>
+		<mapping resource="com/ds/resources/mappings/transactionmodel/carforsalerecord.hbm.xml"/>
+		<mapping resource="com/ds/resources/mappings/transactionmodel/carsalerecord.hbm.xml"/>
+		<mapping resource="com/ds/resources/mappings/transactionmodel/confirmation.hbm.xml"/>
+		<mapping resource="com/ds/resources/mappings/transactionmodel/timesheet.hbm.xml"/>
+		
+		<mapping resource="com/ds/resources/mappings/usermodel/user.hbm.xml"/>
+		<mapping resource="com/ds/resources/mappings/usermodel/address.hbm.xml"/>
+		
+		<mapping resource="com/ds/resources/mappings/vehiclemodel/car.hbm.xml"/>
+		<mapping resource="com/ds/resources/mappings/vehiclemodel/cartype.hbm.xml"/>
+		<mapping resource="com/ds/resources/mappings/vehiclemodel/fuelreading.hbm.xml"/>
+		<mapping resource="com/ds/resources/mappings/vehiclemodel/fueltype.hbm.xml"/>
+		<mapping resource="com/ds/resources/mappings/vehiclemodel/odometerreading.hbm.xml"/>
+		
+		
+	</session-factory>
+</hibernate-configuration>

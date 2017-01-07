@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.ds.model.transaction.CarForSaleRecord" table="carforsalerecord"
+		schema="localoms">
+		<id name="carForSaleId">
+			<!-- this id should be generated as a foreign key-the same id of car should 
+				be inserted in this table -->
+			<generator class="foreign">
+				<param name="property">car</param>
+			</generator>
+		</id>
+
+		<property name="dateOfAdd" />
+		<property name="branchLoc" />
+		<property name="saleprice" />
+		<property name="odoReading" />
+		<one-to-one name="car" class="com.ds.model.vehicle.Car"/>
+	</class>
+
+
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+ <hibernate-mapping>
+ <class name="com.ds.model.vehicle.Car" table="car" schema="localoms">
+ <id name="carId">
+ <generator class="increment"/>
+ </id>
+ <property name="carName"/>
+ <property name="regNumber"/>
+ <property name="dateAdded"/>
+ <property name="modelYear"/>
+ <property name="availability_flag"/>
+ <many-to-one name="carType" class="com.ds.model.vehicle.CarType">
+ <column name="carTypeId"/>
+ </many-to-one>
+ <many-to-one name="fuelType" class="com.ds.model.vehicle.FuelType">
+ <column name="fuelTypeId"/>
+ </many-to-one>
+ <many-to-one name="branch" class="com.ds.model.places.Branch">
+ <column name="branchId"/>
+ </many-to-one>
+ </class>
+ 
+ 
+ </hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.ds.model.transaction.CarSaleRecord" table="carsalerecord"
+		schema="localoms">
+		<id name="carSaleId">
+			<generator class="foreign">
+				<param name="property">carForSaleRecord</param>
+			</generator>
+		</id>
+		<many-to-one name="user" class="com.ds.model.usermodel.User">
+			<column name="userId" />
+		</many-to-one>
+		<many-to-one name="payment" class="com.ds.model.payment.Payment">
+			<column name="paymentId" />
+		</many-to-one>
+		<one-to-one name="carForSaleRecord"
+			class="com.ds.model.transaction.CarForSaleRecord">
+		</one-to-one>
+		<property name="dateOfSale" />
+	</class>
+</hibernate-mapping>

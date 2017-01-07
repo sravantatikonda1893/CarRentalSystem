@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.ds.model.payment.VehicleCharges" table="vehiclecharges"
+		schema="localoms">
+		<id name="vehicleChargeId">
+			<generator class="foreign">
+			<param name="property">carType</param>
+			</generator>
+		</id>
+		<property name="hr_c_P_d" />
+		<property name="hr_c_P_n" />
+		<property name="day_c" />
+		<property name="night_c" />
+		<property name="week_c" />
+		<property name="month_c" />
+		<property name="extra_c_p_Min" />
+		<property name="extra_c_p_KM" />
+		<one-to-one name="carType" class="com.ds.model.vehicle.CarType"/>
+	</class>
+
+
+</hibernate-mapping>

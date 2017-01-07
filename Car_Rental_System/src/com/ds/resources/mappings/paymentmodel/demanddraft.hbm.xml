@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.ds.model.payment.DemandDraft" table="demanddraft"
+		schema="localoms">
+		<!-- we should not take only the dd number as pk, two banks can have same dd number. Hence, making it a composite key would be best -->
+		<composite-id>
+			<key-property name="ddNumber" />
+			<key-property name="bank" />
+		</composite-id>
+		<property name="branch" />
+		<property name="amount" />
+		<property name="depositDate" />
+		<property name="expiryDate" />
+		<many-to-one name="payment" class="com.ds.model.payment.Payment">
+		<column name="paymentId"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

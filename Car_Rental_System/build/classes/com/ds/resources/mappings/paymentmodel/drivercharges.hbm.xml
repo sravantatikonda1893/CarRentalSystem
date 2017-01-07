@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.ds.model.payment.DriverCharges" table="drivercharges"
+		schema="localoms">
+		<id name="driverChargeId">
+			<generator class="increment"/>
+		</id>
+		<property name="hr_c_P_d" />
+		<property name="hr_c_P_n" />
+		<property name="day_c" />
+		<property name="night_c" />
+		<property name="week_c" />
+		<property name="month_c" />
+		<property name="wait_c_p_Min" />
+
+	</class>
+
+
+</hibernate-mapping>

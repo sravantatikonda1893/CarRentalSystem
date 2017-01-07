@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.ds.model.transaction.BookingRecord" table="bookingrecord"
+		schema="localoms">
+		<id name="bookingId">
+			<generator class="increment" />
+		</id>
+		<property name="dateOfJourney" />
+		<property name="distance" />
+		<property name="noOfPassengers" />
+		<property name="driverFlag" />
+		<property name="confirmationFlag" />
+		<!-- These all are foreign keys -->
+		<many-to-one name="source" class="com.ds.model.places.Location">
+			<column name="locationId" />
+		</many-to-one>
+		<many-to-one name="destination" class="com.ds.model.places.Location">
+			<column name="locationId" />
+		</many-to-one>
+		<many-to-one name="car" class="com.ds.model.vehicle.Car">
+			<column name="carId" />
+		</many-to-one>
+
+		<many-to-one name="user" class="com.ds.model.usermodel.User">
+			<column name="userId" />
+		</many-to-one>
+		<many-to-one name="timesheet" class="com.ds.model.transaction.Timesheet">
+			<column name="timesheetId" />
+		</many-to-one>
+
+	</class>
+
+
+</hibernate-mapping>

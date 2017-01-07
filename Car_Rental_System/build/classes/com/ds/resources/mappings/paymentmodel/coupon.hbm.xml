@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.ds.model.payment.Coupon" table="coupon"
+		schema="localoms">
+		<id name="couponId">
+			<generator class="increment" />
+		</id>
+		<property name="expDate" />
+		<property name="minAmount" />
+		<property name="maxAmount" />
+		<property name="discount" />
+	</class>
+</hibernate-mapping>

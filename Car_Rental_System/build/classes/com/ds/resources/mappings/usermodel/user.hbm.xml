@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.ds.model.usermodel.User" table="user">
+		<id name="userId">
+			<generator class="increment" />
+		</id>
+		<property name="userName"></property>
+		<property name="password"></property>
+		<property name="dob"></property>
+		<property name="gender"></property>
+
+		<set name="addresses" cascade="all">
+			<!-- This is foreign key in address table -->
+			<key column="userId" />
+			<!-- one user can have any no. of address(temp, perm, present) -->
+			<one-to-many class="com.ds.model.usermodel.Address" />
+		</set>
+
+		<joined-subclass name="com.ds.model.usermodel.Employee"
+			table="employee" schema="localoms">
+			<key column="userId" />
+			<property name="joinDate" />
+			<property name="role" />
+			<many-to-one name="branch" class="com.ds.model.places.Branch" />
+
+			<joined-subclass name="com.ds.model.usermodel.Driver"
+				table="driver" schema="localoms">
+				<key column="userId" />
+				<property name="licenseId" />
+			</joined-subclass>
+
+		</joined-subclass>
+
+	</class>
+</hibernate-mapping>
+<!-- Here User is th parent class for employee and the employee class has 
+	userId as foreign key. Driver is sub class of Employee, and it even has a 
+	userId of User as a foriegn key -->
